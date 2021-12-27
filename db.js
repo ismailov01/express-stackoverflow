@@ -6,7 +6,7 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT, DATABASE_URL } =
 
 let sequelize;
 
-if (process.env.NODE === "production") {
+if (process.env.NODE_ENV === "production") {
   sequelize = new Sequelize(DATABASE_URL, {
     dialect: "postgres",
     protocol: "postgres",
