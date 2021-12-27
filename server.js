@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const fileupload = require("express-fileupload");
-const sequlize = require("./db");
+const sequelize = require("./db");
 const routes = require("./routes");
 // const morgan = require('morgan')
 const path = require("path");
@@ -24,8 +24,8 @@ const PORT = process.env.PORT || 8080;
 
 const startServer = async (req, res) => {
   try {
-    await sequlize.authenticate();
-    await sequlize.sync({ force: false }); // сбрасывает базу данных
+    await sequelize.authenticate();
+    await sequelize.sync({ force: false }); // сбрасывает базу данных
     app.listen(PORT, () => console.log("server running on port" + PORT));
   } catch (e) {
     console.log(e);
